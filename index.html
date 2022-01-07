@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+  <head>
+    <title>Converter</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Convertiseeur de monnaie" />
+    <link rel="stylesheet" href="reset.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="main.js" defer></script>
+  </head>
+  <body>
+    <section>
+      <div class="header">
+        <img src="logo.svg" alt="" />
+        <h1>EASY Coins Converter</h1>
+      </div>
+      <form>
+        <h2>Convertir</h2>
+        <div class="data">
+          <div class="number">
+            <label for="from">Monnaie d'entrée</label>
+            <div class="input">
+              <input
+                type="number"
+                name="from"
+                id="from"
+                placeholder="0,00"
+                value=""
+              />
+              <label for="from-currencies"></label>
+              <select name="from-currencies" id="from-currencies">
+                <option value="AUD">Australian Dollar (AUD)</option>
+                <option value="BGN">Bulgarian Lev (BGN)</option>
+                <option value="BRL">Brazilian Real (BRL)</option>
+              </select>
+            </div>
+          </div>
+          <button class="switch , data"><img src="switch.svg" /></button>
+          <div class="number">
+            <label for="to">Monnaie de sortie</label>
+            <div class="input">
+              <input
+                type="number"
+                name="to"
+                id="to"
+                placeholder="0,00"
+                disabled
+                value=""
+              />
+              <label for="to-currencies"></label>
+              <select name="to-currencies" id="to-currencies">
+                <option value="AUD">Australian Dollar (AUD)</option>
+                <option selected="selected" value="BGN">
+                  Bulgarian Lev (BGN)
+                </option>
+                <option value="BRL">Brazilian Real (BRL)</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <button type="submit">CONVERTIR</button>
+      </form>
+    </section>
+  </body>
+</html>
