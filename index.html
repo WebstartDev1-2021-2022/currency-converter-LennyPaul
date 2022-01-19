@@ -7,12 +7,12 @@
     <meta name="description" content="Convertiseeur de monnaie" />
     <link rel="stylesheet" href="reset.css" />
     <link rel="stylesheet" href="style.css" />
-    <script src="main.js" defer></script>
+    <script src="main_copy.js" defer></script>
   </head>
   <body>
     <section>
       <div class="header">
-        <img src="logo.svg" alt="" />
+        <img class="logo" src="logo.svg" alt="" />
         <h1>EASY Coins Converter</h1>
       </div>
       <form>
@@ -29,11 +29,7 @@
                 value=""
               />
               <label for="from-currencies"></label>
-              <select name="from-currencies" id="from-currencies">
-                <option value="AUD">Australian Dollar (AUD)</option>
-                <option value="BGN">Bulgarian Lev (BGN)</option>
-                <option value="BRL">Brazilian Real (BRL)</option>
-              </select>
+              <select name="from-currencies" id="from-currencies"></select>
             </div>
           </div>
           <button class="switch , data"><img src="switch.svg" /></button>
@@ -46,16 +42,9 @@
                 id="to"
                 placeholder="0,00"
                 disabled
-                value=""
               />
               <label for="to-currencies"></label>
-              <select name="to-currencies" id="to-currencies">
-                <option value="AUD">Australian Dollar (AUD)</option>
-                <option selected="selected" value="BGN">
-                  Bulgarian Lev (BGN)
-                </option>
-                <option value="BRL">Brazilian Real (BRL)</option>
-              </select>
+              <select name="to-currencies" id="to-currencies"></select>
             </div>
           </div>
         </div>

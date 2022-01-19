@@ -10,41 +10,36 @@ const allCurencies = async (args) => {
   try {
     const response = await fetch(`https://api.frankfurter.app/currencies`);
     const json = await response.json();
-    if (args == "To") {
-      for (const [key, value] of Object.entries(json)) {
-        let tmp = document.createElement("option");
-        tmp.value = key;
-        tmp.text = `${value} (${key})`;
-        selectToCurrencies.add(tmp, null);
-      }
-    } else if (args == "From") {
-      for (const [key, value] of Object.entries(json)) {
-        let tmp = document.createElement("option");
-        tmp.value = key;
-        tmp.text = `${value} (${key})`;
-        selectFromCurrencies.add(tmp, null);
-      }
+    let HTMLcontent;
+    for (const [key, value] of Object.entries(json)) {
+      const option = `<option value ="${key}" >${value} (${key})</option>`;
+      HTMLcontent += option;
     }
-    console.log((selectToCurrencies.options[1].defaultSelected = true));
+    selectToCurrencies.innerHTML = HTMLcontent;
+    selectFromCurrencies.innerHTML = HTMLcontent;
+
+    selectToCurrencies.options[1].defaultSelected = true;
+    selectToCurrencies.options[0].disabled = "disabled";
+    selectFromCurrencies.options[1].disabled = "disabled";
   } catch (error) {
     console.log("Error");
   }
 };
 
-const delToCurrencies = (event, element) => {
-  allCurencies("To");
+const delToCurrencies = (event) => {
   for (var i = 0; i < selectFromCurrencies.length; i++) {
+    selectFromCurrencies.options[i].disabled = false;
     if (selectFromCurrencies.options[i].value == selectToCurrencies.value) {
-      selectFromCurrencies.remove(i);
+      selectFromCurrencies.options[i].disabled = true;
     }
   }
 };
 
 const delFromCurrencies = (event) => {
-  allCurencies("From");
   for (var i = 0; i < selectToCurrencies.length; i++) {
+    selectToCurrencies.options[i].disabled = false;
     if (selectToCurrencies.options[i].value == selectFromCurrencies.value) {
-      selectToCurrencies.remove(i);
+      selectToCurrencies.options[i].disabled = true;
     }
   }
 };
@@ -53,11 +48,12 @@ const switchCurrencies = (event) => {
   event.preventDefault();
   let tmpTo = selectToCurrencies.value;
   let tmpFrom = selectFromCurrencies.value;
-  allCurencies("From");
-  allCurencies("To");
+
   setTimeout(() => {
     selectToCurrencies.value = tmpFrom;
     selectFromCurrencies.value = tmpTo;
+    delToCurrencies();
+    delFromCurrencies();
   }, 100);
 
   console.log("le bouton switch a etet cliquer");
@@ -94,8 +90,7 @@ const submitForm = async (event) => {
     );
   }
 };
-allCurencies("To");
-allCurencies("From");
+allCurencies();
 
 switchButton.addEventListener("click", switchCurrencies);
 form.addEventListener("submit", submitForm);

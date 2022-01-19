@@ -4,7 +4,7 @@ body {
 }
 
 h1 {
-  font-size: 48px;
+  font-size: 38px;
   color: white;
   font-weight: bold;
   margin-left: auto;
@@ -23,9 +23,6 @@ form {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
   margin: auto;
 }
@@ -37,24 +34,13 @@ section {
 }
 
 .number {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
   flex-direction: column;
 }
 
 .data {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
   justify-content: center;
   margin-left: 5%;
   margin-right: 5%;
@@ -83,19 +69,12 @@ select:focus {
   border: none;
   border-radius: 50px;
   color: white;
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    from(#fa709a),
-    to(#fee140)
-  );
   background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
   cursor: pointer;
 }
 
 .switch > img {
-  width: 60%;
+  width: 40px;
 }
 
 label {
@@ -111,29 +90,41 @@ label {
   padding: 2%;
   border-radius: 50px;
   color: white;
-  background-image: -webkit-gradient(
-    linear,
-    left top,
-    right top,
-    from(#fa709a),
-    to(#fee140)
-  );
   background-image: linear-gradient(to right, #fa709a 0%, #fee140 100%);
   cursor: pointer;
 }
 
 .header {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
   align-items: center;
   margin-top: 5%;
   margin-bottom: 10%;
 }
 
 .header > img {
-  width: 10%;
+  width: 15%;
 }
-/*# sourceMappingURL=style.css.map */
+
+@media screen and (max-width: 760px) {
+  .data {
+    display: flex;
+    flex-direction: column;
+  }
+  .switch {
+    margin-top: 3%;
+    margin-bottom: 3%;
+    width: 50px;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+  img {
+    width: 10%;
+  }
+  h1 {
+    font-size: 24px;
+    width: 50%;
+  }
+  .header > img {
+    width: 20%;
+  }
+}
